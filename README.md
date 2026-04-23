@@ -94,4 +94,4 @@ doc-generator/
 | `MODEL_NAME` | `gemma-3-27b-it` | Model to use |
 | `GITHUB_TOKEN` | — | Optional, raises rate limit to 5000/hr |
 | `MAX_FILES_TO_READ` | `20` | Max source files to analyze |
-| `MAX_FILE_CHARS` | `8000` | Max characters per file |
+| `MAX_FILE_CHARS` | `8000` | Max characters per file |"# documentation_generator_agent" 
