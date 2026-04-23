@@ -44,13 +44,9 @@ cp .env.example .env
 # Edit .env and add your GOOGLE_API_KEY
 ```
 
-**Option A — Google AI Studio (recommended, free tier available)**
-1. Get a key at https://aistudio.google.com
-2. Set `GOOGLE_API_KEY=your_key` in `.env`
-
-**Option B — Local Ollama**
+**Local Ollama**
 ```bash
-ollama pull gemma3:12b   # or gemma3:27b
+ollama pull gemma4:e4b  
 # Set USE_OLLAMA=true in .env
 ```
 
