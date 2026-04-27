@@ -44,13 +44,9 @@ cp .env.example .env
 # Edit .env and add your GOOGLE_API_KEY
 ```
 
-**Option A — Google AI Studio (recommended, free tier available)**
-1. Get a key at https://aistudio.google.com
-2. Set `GOOGLE_API_KEY=your_key` in `.env`
-
-**Option B — Local Ollama**
+**Local Ollama**
 ```bash
-ollama pull gemma3:12b   # or gemma3:27b
+ollama pull gemma4:e4b  
 # Set USE_OLLAMA=true in .env
 ```
 
@@ -91,7 +87,7 @@ doc-generator/
 | `GOOGLE_API_KEY` | — | Google AI Studio API key |
 | `USE_OLLAMA` | `false` | Use local Ollama instead |
 | `OLLAMA_BASE_URL` | `http://localhost:11434` | Ollama server URL |
-| `MODEL_NAME` | `gemma-3-27b-it` | Model to use |
+| `MODEL_NAME` | `gemma4:e4b` | Model to use |
 | `GITHUB_TOKEN` | — | Optional, raises rate limit to 5000/hr |
 | `MAX_FILES_TO_READ` | `20` | Max source files to analyze |
 | `MAX_FILE_CHARS` | `8000` | Max characters per file |"# documentation_generator_agent" 
