@@ -10,7 +10,7 @@ Flow:
 from langgraph.graph import StateGraph, END
 
 from graph.state import AgentState
-from graph.nodes import fetch_repo, analyze_code, generate_docs
+from graph.nodes import fetch_repo, analyze_code, generate_docs, assign_id
 
 
 def _should_continue(state: AgentState) -> str:
@@ -24,15 +24,20 @@ def build_graph() -> StateGraph:
 
     # ── Register nodes ────────────────────────────────────────────────────────
     builder.add_node("fetch_repo",    fetch_repo)
+    builder.add_node("assign_id", assign_id)
     builder.add_node("analyze_code",  analyze_code)
     builder.add_node("generate_docs", generate_docs)
 
     # ── Entry point ───────────────────────────────────────────────────────────
     builder.set_entry_point("fetch_repo")
-
-    # ── Edges with error-short-circuit ────────────────────────────────────────
     builder.add_conditional_edges(
         "fetch_repo",
+        _should_continue,
+        {"continue": "assign_id", "end": END},      
+    )
+    # ── Edges with error-short-circuit ────────────────────────────────────────
+    builder.add_conditional_edges(
+        "assign_id",
         _should_continue,
         {"continue": "analyze_code", "end": END},
     )
